@@ -14,7 +14,7 @@
       <p>{{'m| ' + m_revfunc(user_str)}}</p>
       <p>{{user_str | f_revfunc}}</p>
   -->
-  <p>{{'m| ' + m_revfunc('other string')}}</p>
+  <p>{{user_str+revfunc}}</p>
   </div>
 </template>
 
