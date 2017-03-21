@@ -6,6 +6,7 @@
     <button @click='clear'>clear all</button>
     <p>{{user_str}}</p>
     <p v-if="c_counter%2 == 0">{{'c| ' + revfunc}}</p>
+    <p v-if="m_counter%2 == 1">{{'c2| ' + revfunc2}}</p>
     <!--
       <p v-if="c_counter%2 == 0">{{'c| ' + revfunc}}</p>
       <p v-for="x in range(m_counter)">{{'m| ' + m_revfunc(user_str)}}</p>
@@ -45,6 +46,11 @@ let _computed = {
   revfunc () {
     console.warn('c_rev')
     return (this.user_str+'asdf').split('').reverse().join('')
+  },
+
+  revfunc2 () {
+    console.warn('c2_rev')
+    return (this.user_str+'gpeo').split('').reverse().join('')
   }
 }
 
