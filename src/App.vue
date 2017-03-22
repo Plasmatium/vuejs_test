@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <test-computed/>
+    <!--
+      <img src="./assets/logo.png">
+      <test-computed/>
+    -->
+    <class-style/>
   </div>
 </template>
 
@@ -9,6 +12,7 @@
 import Hello from './components/Hello'
 import simple from './components/simple.vue'
 import testComputed from './components/test-computed.vue'
+import classStyle from './components/class&style.vue'
 
 
 export default {
@@ -16,7 +20,8 @@ export default {
   components: {
     Hello,
     simple,
-    testComputed
+    testComputed,
+    classStyle
   }
 }
 </script>
