@@ -4,24 +4,23 @@
       <img src="./assets/logo.png">
       <test-computed/>
     -->
-    <class-style/>
+    <cond-render/>
   </div>
 </template>
 
 <script>
+/*
 import Hello from './components/Hello'
 import simple from './components/simple.vue'
 import testComputed from './components/test-computed.vue'
 import classStyle from './components/class&style.vue'
-
+*/
+import condRender from './components/cond-render.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello,
-    simple,
-    testComputed,
-    classStyle
+    condRender
   }
 }
 </script>

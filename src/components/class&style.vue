@@ -50,7 +50,7 @@ export default {
 
 <style lang="css" scope>
 p {
-  width: 10%;
+  width: 50%;
 }
 .c1 {
   background-color: #ededed;
