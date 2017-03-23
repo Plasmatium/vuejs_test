@@ -4,7 +4,7 @@
       <img src="./assets/logo.png">
       <test-computed/>
     -->
-    <cond-render/>
+    <todo-list/>
   </div>
 </template>
 
@@ -14,13 +14,14 @@ import Hello from './components/Hello'
 import simple from './components/simple.vue'
 import testComputed from './components/test-computed.vue'
 import classStyle from './components/class&style.vue'
-*/
 import condRender from './components/cond-render.vue'
+*/
+import todoList from './components/todoList.vue'
 
 export default {
   name: 'app',
   components: {
-    condRender
+    todoList
   }
 }
 </script>
