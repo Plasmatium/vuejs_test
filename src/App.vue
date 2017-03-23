@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app">    
     <!--
       <img src="./assets/logo.png">
       <test-computed/>
@@ -17,9 +17,11 @@ import classStyle from './components/class&style.vue'
 import condRender from './components/cond-render.vue'
 */
 import todoList from './components/todoList.vue'
+import store from './store'
 
 export default {
   name: 'app',
+  store,
   components: {
     todoList
   }
