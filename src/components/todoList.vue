@@ -1,13 +1,15 @@
 <template lang="html">
   <div class="todo-list">
     <h2>Todo List</h2>
-    <button>+</button>
-    <input placeholder="Create new TODO"/>
-    <ul>
-      <li v-for="(item, index) in tdlist">
+    <table border='0'>
+      <th>
+        <button>+</button>
+        <input placeholder="Create new TODO"/>
+      </th>
+      <tr v-for="(item, index) in tdlist">
         <list-item :item="item" :idx="index"/>
-      </li>
-    </ul>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -46,4 +48,7 @@ export default {
 </script>
 
 <style lang="css">
+.todo-list {
+  box-shadow: 3px 5px 10px #888888;
+}
 </style>

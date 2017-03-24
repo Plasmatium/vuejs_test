@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {Item} from './utils/item'
 
 Vue.use(Vuex)
 
+/* This is for mock data */
+import {mockList} from './utils/mock_tdlist'
+/*************************/
+
 const store = new Vuex.Store({
   state: {
-    tdlist: [
-      { done: 1, contents: 'do this'},
-      { done: 0, contents: 'do that'},
-      { done: 1, contents: 'do everything'},
-    ],
+    tdlist: mockList,
   },
 
   getters: {

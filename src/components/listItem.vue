@@ -1,12 +1,17 @@
 <template lang="html">
   <div class='list-item'>
-    <input type="checkbox"
-    :checked="item.done"
-    @click='$store.commit("toggleDoneState", {idx: idx})'></input>
-    <input :readonly="readonly_"
-    @dblclick="readonly_=false"
-    @keyup.enter="commitItem(idx)"
-    v-model="item.contents"></input>
+    <td>
+      <input class="checkbox" type="checkbox" v-model="item.done"></input>
+    </td>
+    <td id="main-data">
+      <tr>
+        <input class="contents" v-model="item.contents"/>
+      </tr>
+      <tr>
+        <input class="postpone" v-model="item.postpone"/>
+        <input class="doneDate" v-model="item.doneDate"/>
+      </tr>
+    </td>
   </div>
 </template>
 
@@ -40,4 +45,22 @@ export default {
 </script>
 
 <style lang="css">
+input {
+  border: 0
+}
+
+.contents {
+  width: 99%;
+  font-size: 24;
+}
+
+.postpone,.doneDate
+{
+  width: 48%
+}
+
+.list-item {
+  box-shadow: 1px 1px 1px #dddeee;
+  margin-bottom: 3px;
+}
 </style>
