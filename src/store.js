@@ -7,12 +7,9 @@ const store = new Vuex.Store({
   state: {
     tdlist: [
       { done: 1, contents: 'do this'},
-      { done: 0, contents: 'do that'}
+      { done: 0, contents: 'do that'},
+      { done: 1, contents: 'do everything'},
     ],
-  },
-
-  mutations: {
-
   },
 
   getters: {
@@ -27,8 +24,11 @@ const store = new Vuex.Store({
   },
 
   mutations: {
-    updateDoneState (state, pl) {
-      Vue.set(state.tdlist, [pl.idx], pl.item)
+    toggleDoneState (state, pl) {
+      state.tdlist[pl.idx].done ^= 1
+    },
+    updateItemContents (state, pl) {
+      state.tdlist[pl.idx] = pl.item
     }
   }
 })

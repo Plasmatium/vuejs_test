@@ -2,8 +2,11 @@
   <div class='list-item'>
     <input type="checkbox"
     :checked="item.done"
-    @click='toggleDoneState'></input>
-    <span>{{item.contents}}</span>
+    @click='$store.commit("toggleDoneState", {idx: idx})'></input>
+    <input :readonly="readonly_"
+    @dblclick="readonly_=false"
+    @keyup.enter="commitItem(idx)"
+    v-model="item.contents"></input>
   </div>
 </template>
 
@@ -15,17 +18,11 @@ let computed = {
 
 let methods = {
   ...mapMutations([
-    'updateDoneState'
+    'toggleDoneState',
+    'updateItemContents'
   ]),
-  toggleDoneState () {
-    // commit newItem to tdlist[idx]
-    let newDone = this.item.done ^ 1
-    let newItem = Immutable.merge(this.item, {done: newDone}).asMutable()
-
-    this.$store.commit('updateDoneState', {
-      item: newItem,
-      idx: this.idx
-    })
+  commitItem (idx) {
+    //commit('updateItemContents', {newItem})
   }
 }
 
@@ -36,6 +33,7 @@ export default {
   methods,
   data () {
     return {
+      readonly_: true
     }
   }
 }
