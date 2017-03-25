@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class='list-item'>
+  <div class='list-item' @hover="commitItem(idx)">
     <td>
       <input class="checkbox" type="checkbox" v-model="item.done"></input>
     </td>
@@ -28,6 +28,7 @@ let methods = {
   ]),
   commitItem (idx) {
     //commit('updateItemContents', {newItem})
+    console.log(idx)
   }
 }
 
@@ -60,7 +61,12 @@ input {
 }
 
 .list-item {
-  box-shadow: 1px 1px 1px #dddeee;
+  box-shadow: 0.3px 0.3px 9.3px 0.3px #9e9e9e;
+  margin-bottom: 3px;
+}
+
+.list-item:hover {
+  box-shadow: 3px 1.62px 15px 1.62px #9e9e9e;
   margin-bottom: 3px;
 }
 </style>

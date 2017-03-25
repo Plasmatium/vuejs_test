@@ -18,6 +18,7 @@ const store = new Vuex.Store({
 
     done: state => state.tdlist.filter(item=>item.done),
     undone: state => state.tdlist.filter(item=>!item.done),
+    all: state => state.tdlist,
 
     total: state => state.tdlist.length,
     doneCount: (state, getters) => getters.done.length,

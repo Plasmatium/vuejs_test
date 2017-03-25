@@ -1,12 +1,17 @@
 <template lang="html">
   <div class="todo-list">
     <h2>Todo List</h2>
-    <table border='0'>
+    <p>Filters:{{filter}}</p>
+    <select v-model="filter">
+      <option v-for="x in filters">{{x}}</option>
+    </select>
+    </select>
+    <table>
       <th>
         <button>+</button>
         <input placeholder="Create new TODO"/>
       </th>
-      <tr v-for="(item, index) in tdlist">
+      <tr v-for="(item, index) in selected">
         <list-item :item="item" :idx="index"/>
       </tr>
     </table>
@@ -18,6 +23,7 @@ import listItem from './listItem'
 import {mapState, mapGetters} from 'vuex'
 
 let methods = {
+
 }
 
 let computed = {
@@ -27,10 +33,14 @@ let computed = {
   ...mapGetters([
     'done',
     'undone',
+    'all',
     'total',
     'doneCount',
     'undoneCount'
-  ])
+  ]),
+  selected () {
+    return this[this.filter]
+  }
 }
 
 export default {
@@ -40,6 +50,8 @@ export default {
   },
   data () {
     return {
+      filters: ['all', 'done', 'undone'],
+      filter: 'all',
     }
   },
   methods,
@@ -49,6 +61,6 @@ export default {
 
 <style lang="css">
 .todo-list {
-  box-shadow: 3px 5px 10px #888888;
+  height: 80%
 }
 </style>
