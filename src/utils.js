@@ -1,4 +1,5 @@
 /* like python range function */
+
 module.exports = {
   range (n) {
     let rslt = new Array(n);
