@@ -1,5 +1,5 @@
 <template>
-  <div id="app">    
+  <div id="app">
     <!--
       <img src="./assets/logo.png">
       <test-computed/>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import 'babel-polyfill'
 /*
 import Hello from './components/Hello'
 import simple from './components/simple.vue'
