@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {Item} from './utils/item'
-global.moment = require('moment')
 
 Vue.use(Vuex)
 
@@ -12,7 +11,6 @@ import {mockList} from './utils/mock_tdlist'
 const store = new Vuex.Store({
   state: {
     tdlist: mockList,
-    moment: moment,
   },
 
   getters: {
