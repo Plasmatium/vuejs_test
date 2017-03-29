@@ -2,7 +2,8 @@
   <ul>
     <slot name="item"
       v-for="item in x2"
-      :text="item.text">
+      :text="item.x"
+      :text2="item.x + '_2'">
       <!-- fallback content here -->
     </slot>
   </ul>
@@ -19,7 +20,7 @@ export default {
   computed: {
     x2 () { return this.items.map((item)=>{
       let ret = {}
-      ret.x = item.text*2
+      ret.x = item.text*16
       return ret
     }) }
   }

@@ -6,7 +6,7 @@
     -->
     <slot-test>
       <template slot="item" scope="props">
-        <li>{{props.x}}</li>
+        <li>{{props.text2}}</li>
       </template>
     </slot-test>
   </div>
