@@ -10,7 +10,7 @@ const makeRandDay = (now = new Date()) => {
   return new Date(now*1+randDay)
 }
 
-for(let i=0; i<20; i++) {
+for(let i=0; i<200; i++) {
   let contents = 'do this, do that. idx'+i+' '+Math.random()
   let item = new Item(contents)
   item.doneDate = makeRandDay()

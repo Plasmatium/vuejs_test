@@ -3,9 +3,9 @@
     <nav>
       <h2>Todo List</h2>
       <h3>Statistics:</h3>
-      <span>All items: {{total}}.</span>
-      <span>Items done: {{doneCount}}.</span>
-      <span>Items undone: {{undoneCount}}.</span>
+        <span>All items: {{total}}.</span>
+        <span>Items done: {{doneCount}}.</span>
+        <span>Items undone: {{undoneCount}}.</span>
       <h3>Filters:{{filter}}</h3>
       <select v-model="filter">
         <option v-for="x in filters">{{x}}</option>
@@ -14,9 +14,9 @@
       <input placeholder="Create new TODO"/>
     </nav>
     <table style="margin-top: 250px">
-      <tr v-for="(item, index) in selected">
-        <list-item :item="item" :idx="index"/>
-      </tr>
+      <div v-for="(item, index) in tdlist">
+        <list-item :item="item" :idx="index" :filter="filter"/>
+      </div>
     </table>
   </div>
 </template>
@@ -26,17 +26,13 @@ import listItem from './listItem'
 import {mapState, mapGetters} from 'vuex'
 
 let methods = {
-
 }
 
 let computed = {
   ...mapState([
-    'tdlist'
+    'tdlist',
   ]),
   ...mapGetters([
-    'done',
-    'undone',
-    'all',
     'total',
     'doneCount',
     'undoneCount'

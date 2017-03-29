@@ -10,28 +10,19 @@ import {mockList} from './utils/mock_tdlist'
 
 const store = new Vuex.Store({
   state: {
-    tdlist: mockList,
+    tdlist: mockList
   },
 
   getters: {
-    //tdlist: state => state.raw_tdlist,
-
-    done: state => state.tdlist.filter(item=>item.done),
-    undone: state => state.tdlist.filter(item=>!item.done),
-    all: state => state.tdlist,
-
     total: state => state.tdlist.length,
-    doneCount: (state, getters) => getters.done.length,
-    undoneCount: (state, getters) => getters.undone.length
+    doneCount: state => state.tdlist.reduce(
+      (acc, val) => acc += val.done?1:0,
+      0
+    ),
+    undoneCount: (state, getters) => getters.total - getters.doneCount,
   },
 
   mutations: {
-    toggleDoneState (state, pl) {
-      state.tdlist[pl.idx].done ^= 1
-    },
-    updateItemContents (state, pl) {
-      state.tdlist[pl.idx] = pl.item
-    }
   }
 })
 

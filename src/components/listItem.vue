@@ -1,7 +1,12 @@
 <template lang="html">
-  <div class='list-item' @hover="commitItem(idx)">
+  <tr class='list-item'
+    @hover="commitItem(idx)"
+    v-show="show">
     <td>
-      <input class="checkbox" type="checkbox" v-model="item.done"></input>
+      <input class="checkbox"
+        type="checkbox"
+        v-model="item.done">
+      </input>
     </td>
     <td id="main-data">
       <tr>
@@ -12,34 +17,30 @@
         <input class="doneDate" v-model="item.doneDate"/>
       </tr>
     </td>
-  </div>
+  </tr>
 </template>
 
 <script>
 import {mapMutations} from 'vuex'
 
 let computed = {
+  show () {
+    if (this.filter === 'all') return true
+    let state = this.item.done?'done':'undone'
+    return this.filter === state
+  }
 }
 
 let methods = {
-  ...mapMutations([
-    'toggleDoneState',
-    'updateItemContents'
-  ]),
-  commitItem (idx) {
-    //commit('updateItemContents', {newItem})
-    console.log(idx)
-  }
 }
 
 export default {
   name: 'list-item',
-  props: ['item', 'idx'],
+  props: ['item', 'idx', 'filter'],
   computed,
   methods,
   data () {
     return {
-      readonly_: true
     }
   }
 }

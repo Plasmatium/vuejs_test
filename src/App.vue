@@ -4,7 +4,11 @@
       <img src="./assets/logo.png">
       <test-computed/>
     -->
-    <todo-list/>
+    <slot-test>
+      <template slot="item" scope="props">
+        <li>{{props.x}}</li>
+      </template>
+    </slot-test>
   </div>
 </template>
 
@@ -20,11 +24,14 @@ import condRender from './components/cond-render.vue'
 import todoList from './components/todoList.vue'
 import store from './store'
 
+import slotTest from './components/slot-test.vue'
+
 export default {
   name: 'app',
   store,
   components: {
-    todoList
+    todoList,
+    slotTest,
   }
 }
 </script>
